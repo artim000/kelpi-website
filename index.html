@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelpi - Цифрова Екосистема Майбутнього</title>
+    <style>
+        :root {
+            --primary: #6C5CE7;
+            --secondary: #A8A4FF;
+            --accent: #FF7675;
+            --dark: #2D3436;
+            --light: #FFFFFF;
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Стилі для темної теми */
+        body.dark-mode {
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: var(--gradient);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: white;
+            color: var(--primary);
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 0 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.2rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .dark-mode .feature-card {
+            background: #2d2d2d;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .jobs-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .job-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+
+        .dark-mode .job-card {
+            background: #2d2d2d;
+        }
+
+        .shop-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .shop-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+
+        .dark-mode .shop-card {
+            background: #2d2d2d;
+        }
+
+        .price {
+            font-weight: bold;
+            color: var(--accent);
+            margin: 10px 0;
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .theme-switcher {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <span>🌟</span>
+                    <span>Kelpi</span>
+                </div>
+                <div class="nav-links">
+                    <a href="#features">Можливості</a>
+                    <a href="#shop">Магазин</a>
+                    <a href="#jobs">Роботи</a>
+                    <a href="#about">Про нас</a>
+                </div>
+            </nav>
+
+            <div class="hero">
+                <h1>Kelpi - Цифрова Екосистема</h1>
+                <p>Інноваційна платформа, що поєднує ігрові можливості, роботи, магазин та власну економіку</p>
+                <div>
+                    <a href="#start" class="btn btn-primary">Почати</a>
+                    <a href="#shop" class="btn">Магазин</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="features">
+        <div class="container">
+            <h2 class="section-title">🌟 Можливості Kelpi</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🛒</div>
+                    <h3>Магазин Kelpi</h3>
+                    <p>Три формати карток: паперові, пластикові та пластико-електронні з NFC</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💼</div>
+                    <h3>8+ Професій</h3>
+                    <p>Від розробника коду до Келпі-Бот-Оператора</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💎</div>
+                    <h3>НР Коїни</h3>
+                    <p>Нова валюта (1 НР Коїн = 2 грн) для покупок у системі</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="shop">
+        <div class="container">
+            <h2 class="section-title">🛍️ Магазин</h2>
+            <div class="shop-items">
+                <div class="shop-card">
+                    <h3>Premium Start</h3>
+                    <div class="price">5 НР</div>
+                    <p>Доступ до базових преміум функцій</p>
+                </div>
+                <div class="shop-card">
+                    <h3>Ultra Pack</h3>
+                    <div class="price">10 НР</div>
+                    <p>Унікальні теми + 2 роботи</p>
+                </div>
+                <div class="shop-card">
+                    <h3>KELPI MAX</h3>
+                    <div class="price">50 НР</div>
+                    <p>Усе включено + ранній доступ</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="jobs">
+        <div class="container">
+            <h2 class="section-title">👨‍💼 Роботи</h2>
+            <div class="jobs-container">
+                <div class="job-card">
+                    <h3>Розробник Коду</h3>
+                    <p>Створення нових функцій для Kelpi</p>
+                </div>
+                <div class="job-card">
+                    <h3>Охоронець Даних</h3>
+                    <p>Захист системи від зловмисників</p>
+                </div>
+                <div class="job-card">
+                    <h3>Келпі-Бот-Оператор</h3>
+                    <p>Налаштування та підтримка ботів</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="start">
+        <div class="container">
+            <h2 class="section-title">🚀 Як почати?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>1. Отримайте карту</h3>
+                    <p>Придбайте фізичну або цифрову карту Kelpi</p>
+                </div>
+                <div class="feature-card">
+                    <h3>2. Введіть "НР"</h3>
+                    <p>Стартова команда для активації</p>
+                </div>
+                <div class="feature-card">
+                    <h3>3. Отримайте токен</h3>
+                    <p>Ваш ключ до системи Kelpi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Kelpi System. Усі права захищені.</p>
+            <p>Контакти: support@kelpi-system.com</p>
+        </div>
+    </footer>
+
+    <div class="theme-switcher" id="themeSwitcher">🌓</div>
+
+    <script>
+        // Перемикач теми
+        const themeSwitcher = document.getElementById('themeSwitcher');
+        themeSwitcher.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+        });
+
+        // Імітація роботи системи
+        console.log('Система Kelpi ініціалізована');
+        console.log('Введіть "НР" для старту');
+    </script>
+</body>
+</html>
